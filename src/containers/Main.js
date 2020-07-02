@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import ProductsDisplay from '../components/ProductsDisplay';
 import Cart from './Cart';
+import { connect } from 'react-redux';
+import { addCart } from '../actions/addAction';
 
 class Main extends Component {
   constructor(props) {
@@ -9,16 +11,17 @@ class Main extends Component {
   }
 
   render() {
-    const { data } = this.props;
+    const { data, addCart } = this.props;
 
-    const dataToDisplay = data.map((product) => (
-      <div className='product'>
+    const dataToDisplay = data.map((product, i) => (
+      <div className='product' key={i}>
         <img src={product.product_image} alt='Product Img' />
         <h3 className='product_title'>{product.product_name}</h3>
-        <button>Add to Cart</button>
+        <button onClick={addCart}>Add to Cart</button>
       </div>
     ));
 
+    console.log(this.props);
     return (
       <div>
         <div className='products_and_cart_container'>
@@ -30,4 +33,4 @@ class Main extends Component {
   }
 }
 
-export default Main;
+export default connect(null, { addCart })(Main);
