@@ -17,7 +17,9 @@ class Main extends Component {
       <div className='product' key={i}>
         <img src={product.product_image} alt='Product Img' />
         <h3 className='product_title'>{product.product_name}</h3>
-        <button onClick={addCart}>Add to Cart</button>
+        <button onClick={() => addCart(product.product_name)}>
+          Add to Cart
+        </button>
       </div>
     ));
 
