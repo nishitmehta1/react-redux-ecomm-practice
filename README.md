@@ -1,4 +1,4 @@
-## Just made this app to brush up my React Skiils
+## Just made this app to brush up my React Skills
 
 It's a basic 'Add to Cart', where the state is managed through Redux.
 
